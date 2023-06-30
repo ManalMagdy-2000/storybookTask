@@ -1,0 +1,38 @@
+<div>
+  <h2>Add/Update Contact</h2>
+  <div>
+    <label for="avatar">Avatar:</label>
+    <input type="file" id="avatar" accept="image/*" (change)="handleAvatarChange($event)" />
+    <img [src]="contact.avatar" *ngIf="contact.avatar" class="avatar-preview" />
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="contact.name" required />
+    <div *ngIf="nameInvalid && isFormSubmitted" class="validation-error">Name is required.</div>
+  </div>
+  <div>
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" [(ngModel)]="contact.phone" required pattern="[0-9]{10}" />
+    <div *ngIf="phoneInvalid && isFormSubmitted" class="validation-error">Phone is required and must be 10 digits.</div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="contact.email" required />
+    <div *ngIf="emailInvalid && isFormSubmitted" class="validation-error">Email is required and must be a valid email address.</div>
+  </div>
+  <div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" [(ngModel)]="contact.dob" required />
+    <div *ngIf="dobInvalid && isFormSubmitted" class="validation-error">Date of Birth is required.</div>
+  </div>
+  <div>
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="contact.id" required />
+    <div *ngIf="idInvalid && isFormSubmitted" class="validation-error">ID is required.</div>
+  </div>
+  <div>
+    <button (click)="handleSave()" [disabled]="isFormInvalid">Save</button>
+    <button (click)="resetForm()">Reset</button>
+    <button (click)="handleUpdate()" [disabled]="isFormInvalid">Update</button>
+  </div>
+</div>

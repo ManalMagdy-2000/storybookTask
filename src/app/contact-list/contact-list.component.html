@@ -1,0 +1,15 @@
+<div>
+  <h2>Contact Listing</h2>
+  <ul>
+    <li *ngFor="let contact of contacts">
+      <img [src]="contact.avatar" [alt]="contact.name" />
+      <div>
+        <h3>{{ contact.name }}</h3>
+        <p>Phone: {{ contact.phone }}</p>
+        <p>Email: {{ contact.email }}</p>
+        <p>Date of Birth: {{ contact.dob }}</p>
+        <p>ID: {{ contact.id }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
